@@ -1,10 +1,12 @@
+let screen = document.querySelector('.calcScreen');
 const buttons = document.querySelectorAll('button');
-buttonArray = Array.from(buttons);
+const buttonArray = Array.from(buttons);
+let displayNum = '';
+
 
 buttonArray.forEach((item) => {
     item.addEventListener('click', (e) => {
-       console.log(e.target.innerHTML) 
+        displayNum += e.target.innerHTML;
+        screen.innerHTML = displayNum;
     })
 })
-
-console.log(buttonArray)
