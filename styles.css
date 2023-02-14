@@ -1,3 +1,39 @@
 body{
-    min-height: 100vh;
+    min-height: 100%;
+}
+.calcCon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid black;
+}
+.calcScreen {
+    height: 20px;
+    width: 100%;
+    border: 2px solid black;
+}
+.calcLeft {
+    display: flex;
+    flex-direction: column;
+}
+.calcClear {
+    display: flex;
+}
+.calcClear button {
+    flex-grow: 1;
+}
+.calcButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.calcButtons button {
+    min-width: 30%;
+}
+.calcOperators {
+    display: flex;
+    flex-direction: column;
+}
+.calcOperators .add {
+    flex-grow: 2;
 }
