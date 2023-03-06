@@ -17,7 +17,7 @@ numArray.forEach((button) => {
     button.addEventListener('click', e => {
         
         currentNum += e.target.innerHTML;
-        screenBottom.innerHTML = currentNum;
+        updateScreen(e);
         
         console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
     })
@@ -31,11 +31,13 @@ operatorArray.forEach((button) => {
             num1 = result;
             currentNum = '';
             operator = e.target.innerHTML;
+            updateScreen(e);
             console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
         } else {
             operator = e.target.innerHTML;
             num1 = currentNum;
             currentNum = '';
+            updateScreen(e);
         }
         
         console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
@@ -44,15 +46,16 @@ operatorArray.forEach((button) => {
 
 equal.addEventListener('click', e => {
     operate();
+    updateScreen(e);
     num1 = result;
     currentNum = '';
-    operator = e.target.innerHTML;
     console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
 
 clear.addEventListener('click', () => {
     num1 = currentNum = operator = '';
-    result.innerHTML = currentNum;
+    screenBottom.innerHTML = '0';
+    screenTop.innerHTML = '';
     console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
 
@@ -87,4 +90,21 @@ function operate() {
         default:
             break;
         }
+}
+
+function updateScreen(e) {
+    if (e.target.innerHTML == '=') {
+        screenTop.innerHTML = `${num1} ${operator} ${currentNum} = `
+        screenBottom.innerHTML = `${result}`
+    } else if (currentNum == '') {
+        screenTop.innerHTML = `${num1} ${operator}`
+        screenBottom.innerHTML = `${num1}`
+    } 
+    else if (num1 && operator) {
+        screenTop.innerHTML = `${num1} ${operator}`
+        screenBottom.innerHTML = `${currentNum}`
+    } else {
+        screenBottom.innerHTML = `${currentNum}`
+    }
+    
 }
