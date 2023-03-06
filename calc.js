@@ -20,11 +20,7 @@ numArray.forEach((button) => {
     button.addEventListener('click', e => {
         
         currentNum += e.target.innerHTML;
-        
-        if (operator && num1) {
-            operate();
-        }
-        
+                
         screenBottom.innerHTML = currentNum;
         console.log(`Disp: ${currentNum}, Num1: ${num1}, Num2: ${num2}, Op: ${operator}`);
     })
@@ -35,12 +31,10 @@ operatorArray.forEach((button) => {
         operator = e.target.innerHTML;
         
         if (num1) {
-            num2 = currentNum.slice(0, -1);
             operate();
-            num1 = result;
             console.log(result)
         } else {
-            num1 = currentNum.slice(0, -1);    
+            num1 = currentNum;
         }
         
         currentNum = '';
