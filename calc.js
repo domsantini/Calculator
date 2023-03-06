@@ -19,7 +19,7 @@ numArray.forEach((button) => {
         currentNum += e.target.innerHTML;
         screenBottom.innerHTML = currentNum;
         
-        console.table(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
+        console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
     })
 })
 
@@ -27,34 +27,33 @@ operatorArray.forEach((button) => {
     button.addEventListener('click', e => {
         
         if (num1) {
-            console.table(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
             operate();
             num1 = result;
             currentNum = '';
             operator = e.target.innerHTML;
-            console.log(result)
-            console.table(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
+            console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
         } else {
             operator = e.target.innerHTML;
             num1 = currentNum;
             currentNum = '';
         }
         
-        console.table(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
+        console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
     })
 })
 
-equal.addEventListener('click', () => {
+equal.addEventListener('click', e => {
     operate();
     num1 = result;
-    console.log(result)
-    console.log(`Disp: ${currentNum}, Num1: ${num1}, Op: ${operator}`)
+    currentNum = '';
+    operator = e.target.innerHTML;
+    console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
 
 clear.addEventListener('click', () => {
     num1 = currentNum = operator = '';
     result.innerHTML = currentNum;
-    console.log(`Disp: ${currentNum}, Num1: ${num1}, Op: ${operator}`)
+    console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
 
 
