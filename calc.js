@@ -14,25 +14,20 @@ let result = '';
 let operator = '';
 
 numArray.forEach((button) => {
-    button.addEventListener('click', e => {
-        
+    button.addEventListener('click', e => {     
         currentNum += e.target.innerHTML;
         updateScreen(e);
-        
-        console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
     })
 })
 
 operatorArray.forEach((button) => {
     button.addEventListener('click', e => {
-        
         if (num1 && currentNum) {
             operate();
             num1 = result;
             currentNum = '';
             operator = e.target.innerHTML;
             updateScreen(e);
-            console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
         } else if (num1 && !currentNum) {
             currentNum += e.target.innerHTML.slice(1,);
             operator = e.target.innerHTML;
@@ -43,8 +38,6 @@ operatorArray.forEach((button) => {
             currentNum = '';
             updateScreen(e);
         }
-        
-        console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
     })
 })
 
@@ -53,16 +46,13 @@ equal.addEventListener('click', e => {
     updateScreen(e);
     num1 = result;
     currentNum = '';
-    console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
 
 clear.addEventListener('click', () => {
     num1 = currentNum = operator = result = '';
     screenBottom.innerHTML = '0';
     screenTop.innerHTML = '';
-    console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
 })
-
 
 function add() {
     result = ((parseFloat(num1) + parseFloat(currentNum)))
