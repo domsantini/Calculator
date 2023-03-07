@@ -34,6 +34,6 @@ body{
     display: flex;
     flex-direction: column;
 }
-.calcOperators .add {
+.calcOperators #add {
     flex-grow: 2;
 }

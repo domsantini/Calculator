@@ -64,6 +64,9 @@ function multiply() {
     result = ((parseFloat(num1) * parseFloat(currentNum)))
 }
 function divide() {
+    if (currentNum == 0) {
+        
+    }
     result = ((parseFloat(num1) / parseFloat(currentNum)))
 }
 
@@ -88,8 +91,13 @@ function operate() {
 
 function updateScreen(e) {
     if (e.target.innerHTML == '=') {
-        screenTop.innerHTML = `${num1} ${operator} ${currentNum} = `
-        screenBottom.innerHTML = `${result}`
+        if (!num1 && !currentNum) {
+            screenTop.innerHTML = '';
+            screenBottom.innerHTML = '0';
+        } else {
+            screenTop.innerHTML = `${num1} ${operator} ${currentNum} = `
+            screenBottom.innerHTML = `${result}`
+        }
     } else if (currentNum == '') {
         screenTop.innerHTML = `${num1} ${operator}`
         screenBottom.innerHTML = `${num1}`
