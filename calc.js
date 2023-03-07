@@ -26,13 +26,17 @@ numArray.forEach((button) => {
 operatorArray.forEach((button) => {
     button.addEventListener('click', e => {
         
-        if (num1) {
+        if (num1 && currentNum) {
             operate();
             num1 = result;
             currentNum = '';
             operator = e.target.innerHTML;
             updateScreen(e);
             console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`)
+        } else if (num1 && !currentNum) {
+            currentNum += e.target.innerHTML.slice(1,);
+            operator = e.target.innerHTML;
+            updateScreen(e);
         } else {
             operator = e.target.innerHTML;
             num1 = currentNum;
@@ -53,7 +57,7 @@ equal.addEventListener('click', e => {
 })
 
 clear.addEventListener('click', () => {
-    num1 = currentNum = operator = '';
+    num1 = currentNum = operator = result = '';
     screenBottom.innerHTML = '0';
     screenTop.innerHTML = '';
     console.log(`Current: ${currentNum}, Num1: ${num1}, Result: ${result}, Op: ${operator}`);
@@ -106,5 +110,4 @@ function updateScreen(e) {
     } else {
         screenBottom.innerHTML = `${currentNum}`
     }
-    
 }
