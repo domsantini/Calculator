@@ -65,9 +65,11 @@ function multiply() {
 }
 function divide() {
     if (currentNum == 0) {
-        
+        result = 'No can do partner 🤠 Clear and try again!'
+    } else {
+        result = ((parseFloat(num1) / parseFloat(currentNum)))    
     }
-    result = ((parseFloat(num1) / parseFloat(currentNum)))
+    
 }
 
 function operate() {
@@ -109,3 +111,4 @@ function updateScreen(e) {
         screenBottom.innerHTML = `${currentNum}`
     }
 }
+
