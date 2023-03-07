@@ -17,6 +17,7 @@ numArray.forEach((button) => {
     button.addEventListener('click', e => {     
         currentNum += e.target.innerHTML;
         updateScreen(e);
+        console.log(currentNum)
     })
 })
 
@@ -50,8 +51,21 @@ equal.addEventListener('click', e => {
 
 clear.addEventListener('click', () => {
     num1 = currentNum = operator = result = '';
-    screenBottom.innerHTML = '0';
     screenTop.innerHTML = '';
+    screenBottom.innerHTML = '0';
+})
+
+del.addEventListener('click', e => {
+    if (currentNum.length > 1) {
+        currentNum = currentNum.slice(0,-1);
+        updateScreen(e);
+        console.log(currentNum);
+    } else {
+        currentNum = '';
+
+        screenBottom.innerHTML = '0';
+    }
+    
 })
 
 function add() {
@@ -69,7 +83,6 @@ function divide() {
     } else {
         result = ((parseFloat(num1) / parseFloat(currentNum)))    
     }
-    
 }
 
 function operate() {
