@@ -7,6 +7,7 @@ const operatorArray = Array.from(operators)
 const equal = document.querySelector('.equal')
 const clear = document.querySelector('.clear');
 const del = document.querySelector('.delete');
+const decimal = document.querySelector('#decimal')
 
 let currentNum = '';
 let num1 = '';
@@ -14,10 +15,20 @@ let result = '';
 let operator = '';
 
 numArray.forEach((button) => {
-    button.addEventListener('click', e => {     
+    button.addEventListener('click', e => {
+        
+        if (!currentNum && e.target.innerHTML == '.') {
+            currentNum = '0';
+            updateScreen(e);
+        } 
+        
         currentNum += e.target.innerHTML;
+        
+        if (currentNum.includes('.')) {
+            decimal.disabled = true;
+        }
+        
         updateScreen(e);
-        console.log(currentNum)
     })
 })
 
@@ -37,6 +48,7 @@ operatorArray.forEach((button) => {
             operator = e.target.innerHTML;
             num1 = currentNum;
             currentNum = '';
+            decimal.disabled = false;
             updateScreen(e);
         }
     })
@@ -47,6 +59,7 @@ equal.addEventListener('click', e => {
     updateScreen(e);
     num1 = result;
     currentNum = '';
+    decimal.disabled = false;
 })
 
 clear.addEventListener('click', () => {
@@ -59,29 +72,26 @@ del.addEventListener('click', e => {
     if (currentNum.length > 1) {
         currentNum = currentNum.slice(0,-1);
         updateScreen(e);
-        console.log(currentNum);
     } else {
         currentNum = '';
-
         screenBottom.innerHTML = '0';
     }
-    
 })
 
 function add() {
-    result = ((parseFloat(num1) + parseFloat(currentNum)))
+    result = Math.round((parseFloat(num1) + parseFloat(currentNum)) * 1000) / 1000
 }
 function subtract() {
-    result = ((parseFloat(num1) - parseFloat(currentNum)))
+    result = Math.round((parseFloat(num1) - parseFloat(currentNum)) * 1000) / 1000
 }
 function multiply() {
-    result = ((parseFloat(num1) * parseFloat(currentNum)))
+    result = Math.round((parseFloat(num1) * parseFloat(currentNum)) * 1000) / 1000
 }
 function divide() {
     if (currentNum == 0) {
         result = 'No can do partner 🤠 Clear and try again!'
     } else {
-        result = ((parseFloat(num1) / parseFloat(currentNum)))    
+        result = Math.round((parseFloat(num1) / parseFloat(currentNum)) * 1000) / 1000
     }
 }
 
