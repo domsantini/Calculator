@@ -5,42 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/10286/10286416.png">
+    <title>Calculator</title>
     <script src="calc.js" defer></script>
 </head>
 <body>
 
     <div class="calcCon">
+        
         <div class="calcScreen">
-            <span id="screenTop"></span><br>
+            <span id="screenTop"></span>
+            <br>
+            <br>
             <span id="screenBottom">0</span>
         </div>
-        <div class="calcLeft">
-            <div class="calcClear">
-                <button class="clear">C</button>
-                <button class="delete">DEL</button>
+        
+        <div class="calcBottom">
+            <div class="calcLeft">
+                <div class="calcClear">
+                    <button class="clear">C</button>
+                    <button class="delete">DEL</button>
+                </div>
+                <div class="calcButtons">
+                    <button class="num">7</button>
+                    <button class="num">8</button>
+                    <button class="num">9</button>
+                    <button class="num">4</button>
+                    <button class="num">5</button>
+                    <button class="num">6</button>
+                    <button class="num">1</button>
+                    <button class="num">2</button>
+                    <button class="num">3</button>
+                    <button class="num">0</button>
+                    <button id="decimal" class="num">.</button>
+                    <button class="equal">=</button>
+                </div>
             </div>
-            <div class="calcButtons">
-                <button class="num">7</button>
-                <button class="num">8</button>
-                <button class="num">9</button>
-                <button class="num">4</button>
-                <button class="num">5</button>
-                <button class="num">6</button>
-                <button class="num">1</button>
-                <button class="num">2</button>
-                <button class="num">3</button>
-                <button class="num">0</button>
-                <button id="decimal" class="num">.</button>
-                <button class="equal">=</button>
+            <div class="calcOperators">
+                <button class="operator">&divide;</button>
+                <button class="operator">&times;</button>
+                <button class="operator">-</button>
+                <button id='add' class="operator">+</button>
             </div>
         </div>
-        <div class="calcOperators">
-            <button class="operator">&divide;</button>
-            <button class="operator">&times;</button>
-            <button class="operator">-</button>
-            <button id='add' class="operator">+</button>
-        </div>
+             
     </div>
 </body>
 </html>

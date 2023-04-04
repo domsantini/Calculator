@@ -3,52 +3,90 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    background-color: honeydew;
 }
 button {
-    /* appearance: none;
-    color: rgb(0, 128, 0);
-    background-color: rgb(204, 255, 204); */
+    appearance: none;
+    font-size: medium;
+    font-weight: bolder;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+    color: green;
+    background-color: lightgrey;
+}
+button:hover {
+    filter: brightness(85%);
+}
+button:active {
+    filter: brightness(65%);
 }
 .calcCon {
     height: 500px;
-    width: 325px;
+    width: 350px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    border: solid black;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 30px 10px;
+    border: 3px solid black;
+    border-radius: 8px;
+    background-color: white;
 }
 .calcScreen {
-    padding: 2px;
-    margin-bottom: 5px;
-    width: 300px;
-    height: 50px;
+    padding: 10px;
+    height: 100px; 
+    width: 305px;
+    
     border: 2px solid black;
+    border-radius: 5px;
+    background-color: honeydew;
+}
+.calcBottom {
+    display: flex;
+    height: 350px;
+    flex-shrink: 0;
+}
+span {
+    font-size: xx-large;   
 }
 .calcLeft {
     display: flex;
     flex-direction: column;
-}
-.calcClear {
-    display: flex;
-}
-.calcClear button {
-    flex-grow: 1;
-}
-.calcButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-grow: 1;
-}
-.calcButtons button {
-    min-width: 30%;
+    padding: 5px;
+    width: 80%;
 }
 .calcOperators {
     display: flex;
     flex-direction: column;
-    flex-grow: 4;
+    width: 20%;
+    padding: 5px;
+    gap: 10px;
+}
+.calcOperators button {
+    flex-grow: 1;
 }
 .calcOperators #add {
-    flex-grow: ;
+    flex-grow: 5;
+}
+.calcClear {
+    display: flex;
+    gap: 10px;
+}
+.calcClear button {
+    flex-grow: 1;
+    height: 55px;
+    width: 50%;
+}
+.calcButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: self-end;
+    flex-grow: 1;
+}
+.calcButtons button {
+    min-width: 30%;
+    height: 55px;
 }
